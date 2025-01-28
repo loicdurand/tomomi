@@ -4,7 +4,7 @@
   "description": "",
   "main": "assets/javascripts/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "npx encore dev --watch"
   },
   "repository": {
     "type": "git",

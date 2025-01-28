@@ -19,6 +19,42 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+        <div class="container-fluid">
+
+            <header role="banner" class="ui-header">
+
+                <nav class="ui-header-nav" role="navigation" aria-label="Menu principal">
+
+                    <ul class="row ui-header-nav--list">
+
+                        <li class="col ui-header-nav--list-item">
+                            <a class="ui-header-nav--list-item__link" href="/boutique" target="_self">
+                                La boutique
+                            </a>
+                        </li>
+
+                        <li class="col ui-header-nav--list-item">
+                            <a class="ui-header-nav--list-item__link" href="/blog" target="_self">
+                                Le blog
+                            </a>
+                        </li>
+
+                        <li class="col ui-header-nav--list-item">
+                            <a class="ui-header-nav--list-item__link" href="/about" target="_self">
+                                À propos
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+            </header>
+
+            {% block body %}{% endblock %}
+
+        </div>
+
     </body>
 </html>
