@@ -1,19 +1,16 @@
 @use "./starter-complet";
 
+// @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
+
 @font-face {
     font-family: "Imperial Script";
     src: url('../fonts/ImperialScript-Regular.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: "Montserrat";
-    src: url('../fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
-    src: url('../fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
-}
-
 :root {
-    --body-font: "Montserrat", sans-serif;
-    --italic-font: "Imperial Script", sans-serif;
+    --body-font: "Garamond", sans-serif;
+    --italic-font: "Imperial Script";
 
 
     --nav-color: var(--grey-0);
