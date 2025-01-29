@@ -1,11 +1,22 @@
 @use "./starter-complet";
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
+@font-face {
+    font-family: "Imperial Script";
+    src: url('../fonts/ImperialScript-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url('../fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+    src: url('../fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+}
 
 :root {
     --body-font: "Montserrat", sans-serif;
-    --italic-font: "EB Garamond", serif;
+    --italic-font: "Imperial Script", sans-serif;
+
+
+    --nav-color: var(--grey-0);
 }
 
 body {
@@ -20,7 +31,7 @@ body {
 
     /* fin UI base */
 
-    & .container-fluid {
+    & .ui-container {
 
         padding: 0;
 
@@ -31,13 +42,15 @@ body {
         background-position: center;
         // fin background-image
 
+        // HEADER
+
         & .ui-header {
             border-bottom: 1px solid rgba(42, 42, 42, 0.15);
-            background: rgb(255, 255, 255);
             padding: 2rem;
             margin: 0;
             position: fixed;
             width: 100%;
+            background: rgba(42, 42, 42, 0.05);
 
             & .ui-header-nav {
 
@@ -53,14 +66,19 @@ body {
 
                         & .ui-header-nav--list-item__link {
                             font-size: 2rem;
-                            color: var(--grey-8);
+                            color: var(--nav-color);
                             font-weight: 400;
                             text-transform: lowercase;
                         }
                     }
                 }
+
             }
         }
+
+        // fin - HEADER 
+
+        // BOUTON CENTRAL
 
         & .ui-central-btn-ctnr {
             height: 100vh;
@@ -81,6 +99,26 @@ body {
                 cursor: pointer;
             }
         }
+
+        // fin - BOUTON CENTRAL
+
+        // LOGO PRINCIPAL
+
+        & .ui-main-logo:after {
+            content: "TS";
+            width: 80px;
+            height: 80px;
+            color: #e0aa3e;
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            font-family: var(--italic-font);
+            font-size: 80px;
+            letter-spacing: -30px;
+            padding: 8px;
+        }
+
+        // fin - LOGO PRINCIPAL
 
     }
 
