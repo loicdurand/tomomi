@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
         <title>
             {% block title %}
                 {{ app_name | raw }}
@@ -50,6 +52,8 @@
 
                 </nav>
 
+                <div class="mobile-nav-open"></div>
+
             </header>
 
             {% block body %}{% endblock %}
@@ -57,6 +61,37 @@
             <div class="ui-main-logo"></div>
 
         </div>
+
+        {# mobile-nav #}
+
+        <nav class="mobile-nav">
+
+            <p class="mobile-nav-close"></p>
+
+            <ul class="mobile-nav-content">
+                <li class="mobile-nav-header">
+                    Où souhaitez-vous aller?
+                </li>
+                <li class="mobile-link">
+                    <a class="ui-nav-color" href="/boutique">
+                        La boutique
+                    </a>
+                </li>
+                <li class="mobile-link">
+                    <a class="ui-nav-color" href="/blog">
+                        Le blog
+                    </a>
+                </li>
+                <li class="mobile-link">
+                    <a class="ui-nav-color" href="/about">
+                        À propos
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+    {# fin mobile-nav #}
 
     </body>
 </html>
