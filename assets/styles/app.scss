@@ -52,6 +52,8 @@ body {
 
             & .ui-header-nav {
 
+                display: none;
+
                 & .ui-header-nav--list {
                     display: flex;
                     padding-left: 0;
@@ -89,7 +91,7 @@ body {
                 text-align: center;
                 padding: 1.5rem;
                 width: 10em;
-                font-size: 3rem;
+                font-size: 2rem;
                 background: rgba(42, 42, 42, 0.2);
                 color: #fff;
                 font-weight: 500;
@@ -132,13 +134,16 @@ body {
 }
 
 
-@media all and (max-width: 639px) {
-    
-    body .ui-container .ui-central-btn-ctnr .ui-central-btn {
-        font-size: 2rem;
-    }
+@media all and (min-width: 640px) {
 
-    .ui-header-nav {
-        display: none;
+    body .ui-container {
+
+        & .ui-central-btn-ctnr .ui-central-btn {
+            font-size: 3rem;
+        }
+
+        & .ui-header .ui-header-nav {
+            display: block;
+        }
     }
 }
