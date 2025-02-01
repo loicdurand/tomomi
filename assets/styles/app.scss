@@ -1,5 +1,6 @@
 @use "./starter-complet";
 @use "./components/main.scss";
+@use "./blog.scss";
 
 // @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
@@ -18,7 +19,6 @@
 }
 
 body {
-    border: 1px solid;
     margin: 0;
     font-family: var(--body-font);
 
@@ -33,12 +33,14 @@ body {
 
         padding: 0;
 
-        // background-image
-        background-image: url('../images/MAIN.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        // fin background-image
+        &.ui-main-background {
+            // background-image
+            background-image: url('../images/MAIN.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            // fin background-image
+        }
 
         // HEADER
 
@@ -77,6 +79,14 @@ body {
         }
 
         // fin - HEADER 
+
+        // CONTENU PRINCIPAL
+
+        & .ui-main-content {
+            margin-top: 6rem;
+        }
+
+        // CONTENU PRINCIPAL
 
         // BOUTON CENTRAL
 
