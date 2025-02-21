@@ -20,6 +20,8 @@ body .ui-container .ui-main-content.ui-about-container {
     width: 50%;
   }
 
+  // PARTIE "PHOTO"
+
   & .about-panel {
     padding: 30px 0 0 0;
     position: absolute;
@@ -29,117 +31,120 @@ body .ui-container .ui-main-content.ui-about-container {
     -moz-animation: example 1.2s both ease-in;
     animation: example 1.2s both ease-in;
     height: 100vh;
+
+    & .photo-about {
+      position: relative;
+      top: 0;
+      height: 100vh !important;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    & .about-info {
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      color: white;
+      text-align: center;
+      width: 100%;
+      height: 28%;
+      background: rgba(239, 83, 80, 0.85);
+      padding-top: 1rem;
+
+      & .about-info-name {
+        width: 100%;
+        letter-spacing: 3px;
+        font-weight: 500;
+        font-size: 2.5vw;
+      }
+
+      & .about-info-contact {
+        margin-top: 25px;
+        padding-bottom: 100px;
+        margin-bottom: 100px;
+        height: 130px;
+
+        & h4 {
+          margin-bottom: 5px;
+          font-weight: 300;
+          font-size: 1.3vw;
+        }
+
+        & p {
+          font-size: 1.2vw;
+          font-weight: 100;
+          color: #b5b5b5;
+          margin-top: 10px;
+          margin-bottom: 0;
+        }
+
+        & a {
+          margin-bottom: 5px;
+          font-weight: 300;
+          font-size: 1.2vw;
+          color: #E2A9E5;
+        }
+      }
+    }
   }
 
-  & .about-panel .photo-about {
-    position: relative;
-    top: 0;
-    height: 100vh !important;
-    background-size: cover;
-    overflow: hidden;
-  }
-
-  & .about-info {
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
-    color: white;
-    text-align: center;
-    width: 100%;
-    height: 28%;
-    background: rgba(239, 83, 80, 0.85);
-    padding-top: 1rem;
-  }
-
-  & .about-info .about-info-name {
-    width: 100%;
-    letter-spacing: 3px;
-    font-weight: 500;
-    font-size: 2.5vw;
-  }
-
-  & .about-info .about-info-contact {
-    margin-top: 25px;
-    padding-bottom: 100px;
-    margin-bottom: 100px;
-    height: 130px;
-  }
-
-  & .about-info .about-info-contact h4 {
-    margin-bottom: 5px;
-    font-weight: 300;
-    font-size: 1.3vw;
-  }
-
-  & .about-info .about-info-contact p {
-    font-size: 1.2vw;
-    font-weight: 100;
-    color: #b5b5b5;
-    margin-top: 10px;
-    margin-bottom: 0;
-  }
-
-  & .about-info .about-info-contact a {
-    margin-bottom: 5px;
-    font-weight: 300;
-    font-size: 1.2vw;
-    color: #E2A9E5;
-  }
+  // CONTENU
 
   & .about-content {
     float: left;
     padding-top: 30px;
     background: white;
     color: #4B384C;
-  }
 
-  & .about-content p,
-  .about-content blockquote {
-    font-size: 13px;
-    line-height: 20px;
-    letter-spacing: 0.07em;
-  }
+    & p,
+    & blockquote {
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 0.07em;
+    }
 
-  & .about-content h1 {
-    // color: #e0aa3e;
-    text-align: center;
-    line-height: 90px;
-    font-size: 90px;
-    font-weight: 200;
-    letter-spacing: -0.1em;
-    width: 95%;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
+    & h1 {
+      // color: #e0aa3e;
+      text-align: center;
+      line-height: 90px;
+      font-size: 90px;
+      font-weight: 200;
+      letter-spacing: -0.1em;
+      width: 95%;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
 
-  & .about-content .about-me {
-    margin: 3% auto;
-    text-align: justify;
-    font-weight: 300;
-    width: 63%;
-  }
+    & .gold-separator {
+      width: 52px;
+      height: 4px;
+      background: #e0aa3e;
+      margin: 30px 0;
+    }
 
-  & .about-content .about-me p {
-    line-height: 23px;
-  }
+    & .bold-content {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 25px;
+      width: 100%;
+    }
 
-  & .about-content .about-me .about-row {
-    height: 100vh;
-  }
+    & .about-me {
+      margin: 3% auto;
+      text-align: justify;
+      font-weight: 300;
+      width: 63%;
 
-  & .Synopsis-highlightLine {
-    width: 52px;
-    height: 4px;
-    background: #e0aa3e;
-    margin: 30px 0;
-  }
+      & p {
+        line-height: 23px;
+      }
 
-  & .about-content .Synopsis-highlight {
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 25px;
-    width: 100%;
-    // color: #632C65;
+      & .about-row {
+        height: 100vh;
+      }
+
+
+    }
   }
 
   /* Generates animations for cascading tiles */
@@ -173,6 +178,12 @@ body .ui-container .ui-main-content.ui-about-container {
     animation-delay: 0.16s;
     transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
     display: block;
+
+    & i {
+      font-size: 1rem;
+      position: absolute;
+      margin-left: -1.25rem;
+    }
   }
 
   & .about-panel .about-info-contact {

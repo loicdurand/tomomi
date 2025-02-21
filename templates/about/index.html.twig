@@ -26,9 +26,9 @@
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, fuga cum mollitia, repellat officiis aliquam consectetur laboriosam ea quam porro facere expedita impedit esse id incidunt culpa ipsa illo nulla commodi eum pariatur ex nobis. Laboriosam illum error quae eum.
                         </p>
                     </div>
-                    <div class="Synopsis-highlightLine five" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                    <div class="gold-separator five" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
                     <div class="animated fadeIn three">
-                        <p class="Synopsis-highlight">
+                        <p class="bold-content">
                             Lorem, ipsum dolor.
                                 Et, ducimus facilis?
                                 Cum, quos quaerat.
@@ -56,7 +56,7 @@
                             Natus, corrupti est!
                         </p>
                     </div>
-                    <div class="Synopsis-highlightLine five" style=" transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                    <div class="gold-separator five" style=" transform: matrix(1, 0, 0, 1, 0, 0);"></div>
                     <div class="animated fadeIn four">
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptatum illo pariatur consequuntur! Ipsam hic fuga, aperiam assumenda ducimus nesciunt.
@@ -81,7 +81,7 @@
                         <div class="hide-photo-filter animated fadeIn"></div>
                         <div class="about-info">
                             <h3 class="about-info-name animated fadeInUp up-one">
-                                Tomomi SATO
+                                {{ app_whoami }}
                             </h3>
                             <div class="about-info-contact">
                                 <h4 class="animated fadeInUp up-two">
@@ -90,8 +90,17 @@
                                 <p class="animated fadeInUp up-three">
                                     Guadeloupe, FRANCE
                                 </p>
-                                <a href="" class="animated fadeInUp up-three">
-                                    tomomisato111@gmail.com
+                                <a href="mailto:{{ app_mailto }}" class="relative animated fadeInUp up-three">
+                                    <i class="material-icons">
+                                        email
+                                    </i>
+                                    {{ app_mailto }}
+                                </a>
+                                <a href="tel:{{ app_tel }}" class="relative animated fadeInUp up-three">
+                                <i class="material-icons">
+                                        phone
+                                    </i>
+                                    {{ app_tel }}
                                 </a>
                             </div>
                         </div>
