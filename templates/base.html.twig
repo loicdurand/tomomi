@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        <title>
+            {% block title %}
+                {{ app_name | raw }}
+                -
+                {{ app_tagline }}
+            {% endblock %}
+        </title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+
+        <div class="{{ page_accueil is defined ? 'ui-main-background' }} ui-container container-fluid">
+
+            <header role="banner" class="ui-header">
+
+                <nav class="ui-header-nav" role="navigation" aria-label="Menu principal">
+
+                    <ul class="row ui-header-nav--list">
+
+                        {% if page_accueil is not defined %}
+
+                            <li class="col ui-header-nav--list-item">
+                                <a title="Retour à la page d'accueil" class="ui-header-nav--list-item__link" href="/" target="_self">
+                                    <i class="material-icons">
+                                        home
+                                    </i>
+                                </a>
+                            </li>
+
+                        {% endif %}
+
+                        <li class="col ui-header-nav--list-item">
+                            <a class="ui-header-nav--list-item__link" href="/boutique" target="_self">
+                                La boutique
+                            </a>
+                        </li>
+
+                        <li class="col ui-header-nav--list-item">
+                            <a class="ui-header-nav--list-item__link" href="/blog" target="_self">
+                                Le blog
+                            </a>
+                        </li>
+
+                        <li class="col ui-header-nav--list-item">
+                            <a class="ui-header-nav--list-item__link" href="/about" target="_self">
+                                À propos
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+                <div class="mobile-nav-open"></div>
+
+            </header>
+
+            {% block body %}{% endblock %}
+
+            <div class="ui-main-logo"></div>
+
+        </div>
+
+        {# mobile-nav #}
+
+        <nav class="mobile-nav ui-nav">
+
+            <p class="mobile-nav-close"></p>
+
+            <ul class="mobile-nav-content">
+                <li class="mobile-nav-header">
+                    Où souhaitez-vous aller?
+                </li>
+                {% if page_accueil is not defined %}
+
+                    <li class="mobile-link">
+                        <a title="Retour à la page d'accueil" class="ui-nav-color accueil" href="/" target="_self">
+                            Page d'accueil
+                        </a>
+                    </li>
+
+                {% endif %}
+                <li class="mobile-link">
+                    <a class="ui-nav-color" href="/boutique">
+                        La boutique
+                    </a>
+                </li>
+                <li class="mobile-link">
+                    <a class="ui-nav-color" href="/blog">
+                        Le blog
+                    </a>
+                </li>
+                <li class="mobile-link">
+                    <a class="ui-nav-color" href="/about">
+                        À propos
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+    {# fin mobile-nav #}
+
+    </body>
+</html>

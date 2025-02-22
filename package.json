@@ -2,9 +2,9 @@
   "name": "tomomi",
   "version": "1.0.0",
   "description": "",
-  "main": "assets/app.js",
+  "main": "assets/javascripts/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "npx encore dev --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,16 @@
   "bugs": {
     "url": "https://github.com/loicdurand/tomomi/issues"
   },
-  "homepage": "https://github.com/loicdurand/tomomi#readme"
+  "homepage": "https://github.com/loicdurand/tomomi#readme",
+  "dependencies": {
+    "@symfony/webpack-encore": "^5.0.1",
+    "core-js": "^3.40.0"
+  },
+  "devDependencies": {
+    "sass": "^1.83.4",
+    "sass-loader": "^16.0.4",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.7.3",
+    "webpack-notifier": "^1.15.0"
+  }
 }

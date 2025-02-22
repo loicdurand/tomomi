@@ -1,0 +1,419 @@
+/** 
+  * Source d'inspiration (dont j'ai repris ~ 80% du - très - bon travail):
+  * Chris BOLSON https://codepen.io/cbolson/pen/MYgrjrm
+  * lui-meme inspiré du travail de 
+  * Toni Lijic @tonilijic
+  * https://www.toni.li/about  
+  */
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: true;
+}
+
+body .ui-container .ui-main-content.ui-blog-container {
+
+  display: grid;
+  place-content: center;
+  margin-top: 40vw;
+
+
+  img {
+    max-width: 100%;
+  }
+
+  /* Hide radio buttons */
+  input[type="radio"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  & *,
+  & ::before,
+  & ::after {
+    margin: 0;
+  }
+
+  &.cards {
+    --img-w: 200px;
+    --duration: 300ms;
+    --img-easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+    width: min(100% - 4rem, 800px);
+    margin-inline: auto;
+    display: grid;
+
+    counter-reset: my-counter;
+  }
+
+  .card {
+    --cards-grid-cols: auto;
+    --cards-grid-rows: var(--img-w) auto;
+    --cards-grid-gap: 2rem;
+    --cards-footer-justify: center;
+
+    grid-area: 1/1;
+    display: grid;
+    place-items: center;
+    grid-template-columns: var(--cards-grid-cols);
+    grid-template-rows: var(--cards-grid-rows);
+    gap: var(--cards-grid-gap);
+
+  }
+
+  .card-img {
+    width: 75vw;
+    height: 75vw;
+    aspect-ratio: 1 / 1;
+    rotate: var(--angle, 0deg);
+    border-radius: 10px;
+    border: 3px solid #FFF;
+    overflow: hidden;
+    transform-origin: center;
+    object-fit: cover;
+    box-shadow: 0 0 5px 3px rgba(0 0 0 / .05);
+  }
+
+
+
+  input:nth-of-type(1):checked+.card~.card>.card-img {
+    animation: straighten-img-1 calc(var(--duration) * 2) forwards;
+    animation-timing-function: var(--img-easing);
+  }
+
+  .card:has(~input:nth-of-type(2):checked)>.card-img,
+  input:nth-of-type(2):checked+.card~.card>.card-img {
+    animation: straighten-img-2 calc(var(--duration) * 2) forwards;
+    animation-timing-function: var(--img-easing);
+  }
+
+  .card:has(~input:nth-of-type(3):checked)>.card-img,
+  input:nth-of-type(3):checked+.card~.card>.card-img {
+    animation: straighten-img-3 calc(var(--duration) * 2) forwards;
+    animation-timing-function: var(--img-easing);
+  }
+
+  .card:has(~input:nth-of-type(4):checked)>.card-img,
+  input:nth-of-type(4):checked+.card~.card>.card-img {
+    animation: straighten-img-4 calc(var(--duration) * 2) forwards;
+    animation-timing-function: var(--img-easing);
+  }
+
+  .card:has(~input:nth-of-type(5):checked)>.card-img,
+  input:nth-of-type(5):checked+.card~.card>.card-img {
+    animation: straighten-img-5 calc(var(--duration) * 2) forwards;
+    animation-timing-function: var(--img-easing);
+  }
+
+  .card:has(~input:nth-of-type(6):checked)>.card-img,
+  input:nth-of-type(6):checked+.card~.card>.card-img {
+    animation: straighten-img-6 calc(var(--duration) * 2) forwards;
+    animation-timing-function: var(--img-easing);
+  }
+
+  .card:has(~input:nth-of-type(7):checked)>.card-img,
+  input:nth-of-type(7):checked+.card~.card>.card-img {
+    animation: straighten-img-7 calc(var(--duration) * 2) forwards;
+    animation-timing-function: var(--img-easing);
+  }
+
+  /* as CSS can't remove animations, we change the animation according to which checkbox is checked  - all animations are the same (would be simpler with SCSS) */
+  @keyframes straighten-img-1 {
+    50% {
+      --angle: 0deg;
+    }
+  }
+
+  @keyframes straighten-img-2 {
+    50% {
+      --angle: 0deg;
+    }
+  }
+
+  @keyframes straighten-img-3 {
+    50% {
+      --angle: 0deg;
+    }
+  }
+
+  @keyframes straighten-img-4 {
+    50% {
+      --angle: 0deg;
+    }
+  }
+
+  @keyframes straighten-img-5 {
+    50% {
+      --angle: 0deg;
+    }
+  }
+
+  @keyframes straighten-img-6 {
+    50% {
+      --angle: 0deg;
+    }
+  }
+
+  @keyframes straighten-img-7 {
+    50% {
+      --angle: 0deg;
+    }
+  }
+
+  /* stacking order - these are updated according to which card is selected */
+  /*
+.card:nth-of-type(1){   z-index: var(--card-1-z,1);}
+.card:nth-of-type(2){   z-index: var(--card-2-z,2);}
+.card:nth-of-type(3){   z-index: var(--card-3-z,3);}
+.card:nth-of-type(4){   z-index: var(--card-4-z,4);}
+.card:nth-of-type(5){   z-index: var(--card-5-z,5);}
+.card:nth-of-type(6){   z-index: var(--card-6-z,6);}
+.card:nth-of-type(7){   z-index: var(--card-7-z,7);}
+*/
+  /* ordering according to current checked card */
+  /*
+.cards:has(input:nth-of-type(1):checked){
+    --card-1-z: 7;
+    --card-2-z: 6;
+    --card-3-z: 5;
+    --card-4-z: 4;
+    --card-5-z: 3;
+    --card-6-z: 2; 
+    --card-7-z: 1;
+}
+.cards:has(input:nth-of-type(2):checked){
+    --card-1-z: 6;
+    --card-2-z: 7;
+    --card-3-z: 5;
+    --card-4-z: 4;
+    --card-5-z: 3;
+    --card-6-z: 2; 
+    --card-7-z: 1;
+}
+.cards:has(input:nth-of-type(3):checked){
+    --card-1-z: 5;
+    --card-2-z: 6;
+    --card-3-z: 7;
+    --card-4-z: 4;
+    --card-5-z: 3;
+    --card-6-z: 2; 
+    --card-7-z: 1;
+}
+.cards:has(input:nth-of-type(4):checked){
+    --card-1-z: 4;
+    --card-2-z: 5;
+    --card-3-z: 6;
+    --card-4-z: 6;
+    --card-5-z: 3;
+    --card-6-z: 2; 
+    --card-7-z: 1;
+}
+.cards:has(input:nth-of-type(5):checked){
+    --card-1-z: 3;
+    --card-2-z: 4;
+    --card-3-z: 5;
+    --card-4-z: 6;
+    --card-5-z: 7;
+    --card-6-z: 2; 
+    --card-7-z: 1;
+}
+.cards:has(input:nth-of-type(6):checked){
+    --card-1-z: 2;
+    --card-2-z: 3;
+    --card-3-z: 4;
+    --card-4-z: 5;
+    --card-5-z: 6;
+    --card-6-z: 7; 
+    --card-7-z: 1;
+}
+.cards:has(input:nth-of-type(7):checked){
+    --card-1-z: 1;
+    --card-2-z: 2;
+    --card-3-z: 3;
+    --card-4-z: 4;
+    --card-5-z: 5;
+    --card-6-z: 6; 
+    --card-7-z: 7;
+}
+*/
+
+  /* stacking order - these are updated according to which card is selected */
+  .card {
+    z-index: -1;
+  }
+
+  input:checked+.card {
+    z-index: 10 !important;
+  }
+
+  /* next card checked - place behind */
+  .card:has(+input:checked) {
+    z-index: 9;
+  }
+
+  /* next card +1 checked - place behind */
+  .card:has(+input + .card + input:checked) {
+    z-index: 8;
+  }
+
+  /* next card +2 checked - place behind */
+  .card:has(+input + .card +input + .card + input:checked) {
+    z-index: 7;
+  }
+
+  /* next card +3 checked - place behind */
+  .card:has(+input + .card +input + .card +input + .card + input:checked) {
+    z-index: 6;
+  }
+
+  /* next card +4 checked - place behind */
+  .card:has(+input + .card +input + .card +input + .card +input + .card + input:checked) {
+    z-index: 5;
+  }
+
+  /* next card +5 checked - place behind */
+  .card:has(+input + .card +input + .card +input +input + .card +input + .card +input + .card + input:checked) {
+    z-index: 4;
+  }
+
+  /* next card +6 checked - place behind */
+  .card:has(+input + .card +input + .card +input + .card +input +input + .card +input + .card +input + .card + input:checked) {
+    z-index: 3;
+  }
+
+  /*
+.card::after{
+  counter-increment: my-counter;
+  content: counter(my-counter);
+  postion: absolute;
+  inset: 0;
+  margin: auto;
+  font-size: 2rem;
+  font-color: blue;
+}
+*/
+  .card-data {
+    display: grid;
+    gap: 1rem;
+    margin-top: 12.5vw;
+  }
+
+  .card-data>.card-num {
+    opacity: var(--data-opacity, 0);
+    font-size: .8rem;
+    color: #666;
+  }
+
+  .card-data>p {
+    font-size: 0.9rem;
+    color: #333;
+  }
+
+  .card-data>h2,
+  .card-data>p {
+    transition: var(--duration) ease-in-out;
+    transition-delay: var(--data-delay, 0ms);
+    opacity: var(--data-opacity, 0);
+    translate: 0 var(--data-y, 20px);
+  }
+
+  .card-data>footer {
+    display: flex;
+    justify-content: var(--cards-footer-justify);
+    gap: 2rem;
+  }
+
+  .card-data>footer label {
+    margin-block-start: auto;
+    cursor: pointer;
+    pointer-events: var(--card-events, none);
+    opacity: var(--data-opacity, 0);
+    transition: color var(--duration) ease-in-out;
+    color: var(--label-clr-txt, #000);
+    background-color: var(--label-clr-bg, #EEE);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    aspect-ratio: 1/1;
+    display: grid;
+    place-content: center;
+    transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+  }
+
+
+  input:checked:focus-visible+.card>.card-data>footer label,
+  .card-data>footer label:hover {
+    --label-clr-txt: #FFF;
+    --label-clr-bg: steelblue;
+  }
+
+  input:checked+.card {
+    --data-opacity: 1;
+    --data-y: 0;
+    --data-delay: var(--duration);
+    --card-events: auto;
+    transition: z-index;
+    transition-delay: 300ms;
+    /*z-index: 1;*/
+  }
+
+  input:checked+.card>.card-img {
+    animation: reveal-img calc(var(--duration) * 2) forwards;
+  }
+
+  @keyframes reveal-img {
+    50% {
+      translate: -150% 0;
+      --angle: 0deg;
+    }
+  }
+
+}
+
+@media all and (min-width: 640px) {
+  body .ui-container .ui-main-content.ui-blog-container {
+    margin-top: 30vw;
+  }
+
+  body .ui-container .ui-main-content.ui-blog-container .card-img {
+    width: 40vw;
+    height: 40vw;
+  }
+}
+
+@media all and (min-width: 992px) {
+  body .ui-container .ui-main-content.ui-blog-container.ui-blog-container .card-data {
+    margin-top: 0;
+    width: 35vw;
+  }
+
+  body .ui-container .ui-main-content.ui-blog-container {
+    margin-top: 10vw;
+    width: 80vw !important;
+  }
+
+  body .ui-container .ui-main-content.ui-blog-container .card-img {
+    width: 25vw;
+    height: 25vw;
+  }
+
+  body .ui-container .ui-main-content.ui-blog-container .card {
+    --cards-grid-cols: 25vw auto;
+    --cards-grid-rows: auto;
+    --cards-grid-gap: 4rem;
+    --cards-footer-justify: start;
+
+    & .card-data>h2,
+    & .card-data>p {
+      font-size: 24px;
+    }
+  }
+
+}
