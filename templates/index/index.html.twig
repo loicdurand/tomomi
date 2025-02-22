@@ -1,5 +1,16 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+  Bienvenue -
+  {{ app_name | raw }}
+{% endblock %}
+
 {% block body %}
+
+  <div class="ui-central-btn-ctnr">
+    <a class="ui-hoverable ui-central-btn" type="button" href="/blog">
+      Découvrir
+    </a>
+  </div>
 
 {% endblock %}

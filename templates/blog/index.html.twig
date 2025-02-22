@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Le blog -
+    {{ app_name | raw }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="ui-main-content ui-blog-container cards">
+
+        {% for i, article in articles %}
+            <input type="radio" id="radio-{{ i }}" name="radio-card" checked>
+                <article class="card" style="--angle:{{ i < 6 ? angles[i] : 4 }}deg">
+                    <img class="card-img" src="{{ asset('/images/articles_illustrations/' ~ article.image) }}">
+                        <div class="card-data">
+                            <span class="card-num">
+                                {{ i+1 }}
+                                /
+                                {{ articles | length }}
+                            </span>
+                            <h2>
+                                {{ article.titre }}
+                            </h3>
+                            <p>
+                                {{ article.contenu }}
+                            </p>
+                            <footer>
+
+                                {% set next = i == (articles | length) - 1 ? 0 : i + 1 %}
+                                {% set prev = i == 0 ? articles | length - 1 : i - 1 %}
+                                <label for="radio-{{ prev }}" aria-label="Previous">
+                                    &#10094;
+                                </label>
+                                <label for="radio-{{ next }}" aria-label="Next">
+                                    &#10095;
+                                </label>
+                            </footer>
+                        </div>
+                    </article>
+                {% endfor %}
+
+            </div>
+        {% endblock %}
+        
