@@ -4,7 +4,8 @@
   "description": "",
   "main": "assets/javascripts/app.js",
   "scripts": {
-    "watch": "npx encore dev --watch"
+    "watch": "npx encore dev --watch",
+    "compile": "php bin/console asset-map:compile"
   },
   "repository": {
     "type": "git",

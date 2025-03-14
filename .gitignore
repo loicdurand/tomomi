@@ -53,6 +53,7 @@
 /.web-server-pid
 
 public/build
+public/assets
 node_modules
 migrations
 .env.*
