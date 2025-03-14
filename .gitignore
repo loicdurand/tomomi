@@ -52,16 +52,8 @@
 # Embedded web-server pid file
 /.web-server-pid
 
-###> symfony/webpack-encore-bundle ###
-/node_modules/
-/public/build/
-npm-debug.log
-yarn-error.log
-###< symfony/webpack-encore-bundle ###
-
-###> symfony/asset-mapper ###
-/public/assets/
-/assets/vendor/
-###< symfony/asset-mapper ###
+public/build
+node_modules
 migrations
-assets/images/articles_illustrations/*
+.env.*
+*.lock
